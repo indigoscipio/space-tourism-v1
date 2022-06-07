@@ -1,0 +1,22 @@
+{
+  "name": "space-tourism-v1",
+  "version": "1.0.0",
+  "description": "Space Tourism Project from Frontend Mentor",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass -w scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indigoscipio/space-tourism-v1.git"
+  },
+  "author": "Samuel Oktavianus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indigoscipio/space-tourism-v1/issues"
+  },
+  "homepage": "https://github.com/indigoscipio/space-tourism-v1#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

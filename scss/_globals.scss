@@ -1,0 +1,117 @@
+:root {
+  //Color Palette
+  --clr-dark-h: 230;
+  --clr-dark-s: 35%;
+  --clr-dark-l: 7%;
+  --clr-dark: hsl(230, 35%, 7%);
+
+  --clr-light-blue-h: 231;
+  --clr-light-blue-s: 77%;
+  --clr-light-blue-l: 90%;
+  --clr-light-blue: hsl(231, 77%, 90%);
+
+  --clr-white-h: 0;
+  --clr-white-s: 0%;
+  --clr-white-l: 100%;
+  --clr-white: hsl(0, 0%, 100%);
+
+  //Font Size
+  --fs-150: 8rem;
+  --fs-100: 10rem;
+  --fs-56: 5.6rem;
+  --fs-32: 2rem;
+  --fs-28: 1.6rem;
+  --fs-18: 1.4rem;
+  --fs-16: 1.6rem;
+  --fs-14: 1.4rem;
+
+  //Font Family
+  --ff-bellefair: "Bellefair", serif;
+  --ff-barlow: "Barlow", sans-serif;
+  --ff-barlow-cond: "Barlow Condensed", sans-serif;
+
+  @include md {
+    --fs-150: 15rem;
+    --fs-100: 10rem;
+    --fs-56: 5.6rem;
+    --fs-32: 3.2rem;
+    --fs-28: 2.8rem;
+    --fs-18: 1.4rem;
+    --fs-16: 1.6rem;
+    --fs-14: 1.4rem;
+  }
+}
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-weight: 400;
+  min-width: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  background-color: var(--clr-dark);
+  color: var(--clr-white);
+  font-size: var(--fs-18);
+  line-height: 1.6;
+  min-height: 100vh;
+  font-family: var(--ff-barlow);
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+//Homepage
+.home {
+  background: url(../images/home/background-home-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+
+  @include md {
+    background: url(../images/home/background-home-tablet.jpg);
+    background-position: bottom center;
+    background-size: cover;
+  }
+
+  @include lg {
+    background: url(../images/home/background-home-desktop.jpg);
+    background-position: bottom center;
+    background-size: cover;
+  }
+}
