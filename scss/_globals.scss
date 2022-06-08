@@ -17,8 +17,8 @@
 
   //Font Size
   --fs-150: 8rem;
-  --fs-100: 10rem;
-  --fs-56: 5.6rem;
+  --fs-100: 5.6rem;
+  --fs-56: 3.2rem;
   --fs-32: 2rem;
   --fs-28: 1.6rem;
   --fs-18: 1.4rem;
@@ -32,13 +32,18 @@
 
   @include md {
     --fs-150: 15rem;
-    --fs-100: 10rem;
+    --fs-100: 8rem;
     --fs-56: 5.6rem;
     --fs-32: 3.2rem;
     --fs-28: 2.8rem;
-    --fs-18: 1.4rem;
+    --fs-18: 1.6rem;
     --fs-16: 1.6rem;
     --fs-14: 1.4rem;
+  }
+
+  @include lg {
+    --fs-18: 1.8rem;
+    --fs-100: 10rem;
   }
 }
 html {
@@ -82,6 +87,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   font-family: var(--ff-barlow);
+  overflow-x: hidden;
 }
 
 img,
@@ -102,16 +108,136 @@ select {
   background: url(../images/home/background-home-mobile.jpg);
   background-size: cover;
   background-position: bottom center;
+  background-repeat: no-repeat;
 
   @include md {
     background: url(../images/home/background-home-tablet.jpg);
     background-position: bottom center;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   @include lg {
     background: url(../images/home/background-home-desktop.jpg);
     background-position: bottom center;
     background-size: cover;
+    background-repeat: no-repeat;
   }
+}
+
+//Crew
+.destination {
+  background: url(../images/destinations/bg-mobile.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @include md {
+    background: url(../images/crew/bg-tablet.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @include lg {
+    background: url(../images/crew/bg-mobile.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+//Crew
+.crew {
+  background: url(../images/crew/bg-mobile.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @include md {
+    background: url(../images/crew/bg-tablet.jpg);
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @include lg {
+    background: url(../images/crew/bg-desktop.png);
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+//technology
+.technology {
+  background: url(../images/technology/bg-mobile.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @include md {
+    background: url(../images/technology/bg-tablet.jpg);
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @include lg {
+    background: url(../images/technology/bg-desktop.jpg);
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+//Menu
+.menu {
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+  top: 2.4rem;
+  right: 2.4rem;
+  gap: 6px;
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include md {
+    display: none;
+  }
+
+  @include lg {
+    display: none;
+  }
+
+  .line {
+    background-color: var(--clr-light-blue);
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 3px;
+  }
+}
+
+.logo {
+  margin: 2.4rem clamp(2.4rem, 5vw, 4.8rem);
+}
+
+.logo img {
+  min-width: 40px;
+
+  @include md {
+    min-width: 48px;
+  }
+}
+
+.hidden {
+  display: none;
 }

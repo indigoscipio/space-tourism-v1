@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crew 🐱‍🚀</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="crew">
+    <header class="flex primary-header">
+      <div class="logo"><img src="images/main-logo-white.svg" alt="" /></div>
+      <button class="menu" id="menu">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </button>
+      <nav class="navigation-bar flex">
+        <ul
+          class="primary-navigation flex underline-indicators"
+          id="menu-content"
+        >
+          <li>
+            <a
+              class="ff-barlow-cond fs-16 uppercase ls-2 text-white"
+              href="./index.html"
+              ><span>00</span> Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-barlow-cond fs-16 uppercase ls-2 text-white"
+              href="./destination.html"
+              ><span>01</span>Destination</a
+            >
+          </li>
+          <li class="active">
+            <a class="ff-barlow-cond fs-16 uppercase ls-2 text-white" href="#"
+              ><span>02</span>Crew</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-barlow-cond fs-16 uppercase ls-2 text-white"
+              href="./technology.html"
+              ><span>03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="grid-container grid-container--crew flow">
+      <h2 class="numbered-title"><span>02</span> Meet your crew</h2>
+
+      <!-- Commander -->
+      <article
+        class="crew-details flow"
+        id="commander-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 class="ff-bellefair fs-32 uppercase">Commander</h2>
+        <p class="ff-bellefair fs-56 uppercase text-white">Douglas Hurley</p>
+        <p class="text-light-blue">
+          Douglas Gerald Hurley is an American engineer, former Marine Corps
+          pilot and former NASA astronaut. He launched into space for the third
+          time as commander of Crew Dragon Demo-2.
+        </p>
+      </article>
+
+      <!-- Mission Specialist -->
+      <article
+        hidden
+        class="crew-details flow"
+        id="mission-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 class="ff-bellefair fs-32 uppercase">Mission Specialist</h2>
+        <p class="ff-bellefair fs-56 uppercase text-white">MARK SHUTTLEWORTH</p>
+        <p class="text-light-blue">
+          Mark Richard Shuttleworth is the founder and CEO of Canonical, the
+          company behind the Linux-based Ubuntu operating system. Shuttleworth
+          became the first South African to travel to space as a space tourist.
+        </p>
+      </article>
+
+      <!-- Pilot -->
+      <article
+        hidden
+        class="crew-details flow"
+        id="pilot-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 class="ff-bellefair fs-32 uppercase">Pilot</h2>
+        <p class="ff-bellefair fs-56 uppercase text-white">Victor Glover</p>
+        <p class="text-light-blue">
+          Pilot on the first operational flight of the SpaceX Crew Dragon to the
+          International Space Station. Glover is a commander in the U.S. Navy
+          where he pilots an F/A-18.He was a crew member of Expedition 64, and
+          served as a station systems flight engineer.
+        </p>
+      </article>
+
+      <!-- Flight Engineer -->
+      <article
+        hidden
+        class="crew-details flow"
+        id="crew-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 class="ff-bellefair fs-32 uppercase">Flight Engineer</h2>
+        <p class="ff-bellefair fs-56 uppercase text-white">Anousheh Ansari</p>
+        <p class="text-light-blue">
+          Anousheh Ansari is an Iranian American engineer and co-founder of
+          Prodea Systems. Ansari was the fourth self-funded space tourist, the
+          first self-funded woman to fly to the ISS, and the first Iranian in
+          space.
+        </p>
+      </article>
+
+      <div
+        class="dot-indicators flex"
+        role="tablist"
+        aria-label="crew member list"
+      >
+        <button
+          aria-selected="true"
+          aria-controls="commander-tab"
+          role="tab"
+          data-image="commander-image"
+          tabindex="0"
+          class="active"
+        >
+          <span class="sr-only">Slide Title</span>
+        </button>
+        <button
+          ria-selected="false"
+          aria-controls="mission-tab"
+          role="tab"
+          data-image="mission-image"
+          tabindex="-1"
+        >
+          <span class="sr-only">Slide Title</span>
+        </button>
+        <button
+          ria-selected="false"
+          aria-controls="mission-tab"
+          role="tab"
+          data-image="mission-image"
+          tabindex="-1"
+        >
+          <span class="sr-only">Slide Title</span>
+        </button>
+        <button
+          ria-selected="false"
+          aria-controls="mission-tab"
+          role="tab"
+          data-image="mission-image"
+          tabindex="-1"
+        >
+          <span class="sr-only">Slide Title</span>
+        </button>
+      </div>
+
+      <img
+        id="commander-image"
+        src="images/crew/crew-commander-desktop.png"
+        alt=""
+      />
+      <img
+        class="hidden"
+        id="commander-image"
+        src="images/crew/crew-commander-desktop.png"
+        alt=""
+      />
+      <img
+        class="hidden"
+        id="commander-image"
+        src="images/crew/crew-commander-desktop.png"
+        alt=""
+      />
+      <img
+        class="hidden"
+        id="commander-image"
+        src="images/crew/crew-commander-desktop.png"
+        alt=""
+      />
+    </main>
+    <script src="navigation.js"></script>
+  </body>
+</html>

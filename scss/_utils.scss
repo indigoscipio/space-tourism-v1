@@ -22,6 +22,7 @@
   margin-inline: auto;
 }
 
+//layout
 .grid-container {
   display: grid;
   text-align: center;
@@ -34,10 +35,10 @@
   }
 
   * {
-    max-width: 50ch;
+    max-width: 50rem;
   }
 
-  @include md {
+  @include lg {
     text-align: left;
     padding: 0;
     grid-column-gap: var(--container-gap, 3.2rem);
@@ -54,12 +55,183 @@
   }
 }
 
-// .grid-container > *:first-child {
-//   grid-column: 2;
+//Crew layout
+.grid-container--crew {
+  padding-bottom: 0;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+
+  @include md {
+    grid-template-areas:
+      "title"
+      "content"
+      "tabs"
+      "image";
+  }
+  @include lg {
+    grid-template-areas:
+      ". title title ."
+      ". content image ."
+      ". tabs image .";
+  }
+}
+
+// .grid-container--crew img {
+//   max-width: 60%;
+//   grid-area: image;
+//   border-bottom: 1px solid white;
 // }
-// .grid-container > *:last-child {
-//   grid-column: 3;
-// }
+
+.grid-container--crew .crew-details {
+  grid-area: content;
+
+  @include lg {
+    justify-self: start;
+  }
+}
+
+.grid-container--crew img {
+  border-bottom: 1px solid rgba(white, 0.25);
+
+  @include lg {
+    align-self: end;
+  }
+}
+
+.grid-container--crew .dot-indicators {
+  grid-area: tabs;
+
+  @include lg {
+    justify-self: start;
+  }
+}
+
+.grid-container--crew .crew-details h2 {
+  color: rgba(white, 0.25);
+}
+
+.grid-container--destination {
+  --flow-space: 3.2rem;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+
+  @include lg {
+    justify-items: start;
+    align-content: start;
+    grid-template-areas:
+      ". title title ."
+      ". image tabs ."
+      ". image content .";
+  }
+}
+
+.numbered-title {
+  grid-area: title;
+
+  @include md {
+    text-align: left;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.grid-container--destination img,
+.grid-container--crew img {
+  grid-area: image;
+  max-width: 50%;
+
+  @include lg {
+    max-width: 90%;
+    justify-self: center;
+  }
+}
+
+.grid-container--destination .tabs {
+  grid-area: tabs;
+}
+
+.grid-container--destination .destination-info {
+  grid-area: content;
+}
+
+.destination-meta {
+  border-top: 1px solid rgba(white, 0.25);
+  flex-direction: column;
+  margin-top: 3.2rem;
+  padding: 3.2rem 0;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @include lg {
+    justify-content: flex-start;
+    --gap: 6.4rem;
+  }
+}
+
+//Technology layout
+.grid-container--technology {
+  --flow-space: 3.2rem;
+  align-content: start;
+  grid-template-areas:
+    "title"
+    "image"
+    "content";
+
+  @include lg {
+    grid-template-areas:
+      ". title title ."
+      ". content image image";
+  }
+}
+
+.grid-container--technology img {
+  min-width: calc(100% + 4.8rem);
+  grid-area: image;
+
+  @include md {
+    content: url(../images/technology/image-tablet.jpg);
+  }
+
+  @include lg {
+    min-width: 50%;
+    content: url(../images/technology/image-desktop.jpg);
+  }
+}
+
+.grid-container--technology .technology-info {
+  grid-area: content;
+  flex-direction: column;
+
+  @include lg {
+    --gap: 6.4rem;
+    justify-self: start;
+    flex-direction: row;
+  }
+}
+
+.grid-container--technology article {
+  @include lg {
+    order: 2;
+  }
+}
+
+.grid-container--technology .number-indicator {
+  justify-content: center;
+  grid-area: tabs;
+
+  @include lg {
+    order: 1;
+  }
+}
 
 .sr-only {
   position: absolute;
@@ -161,9 +333,13 @@
   letter-spacing: 4.72px;
 
   span {
-    margin-right: 2.4rem;
+    margin-right: 0.8rem;
     font-weight: 700;
     @include alpha(color, --clr-white, 0.25);
+
+    @include md {
+      margin: 2.4rem;
+    }
   }
 }
 
@@ -205,17 +381,74 @@
 }
 
 //Primary Navigation
+.navigation-bar {
+  order: 3;
+}
+
 .primary-navigation {
+  z-index: 1000;
+  position: fixed;
+  background-color: rgba(white, 0.05);
+  backdrop-filter: blur(1.6rem);
+  padding: 9.6rem 3.2rem;
+  height: 100vh;
+  width: 70%;
+  top: 0;
+  right: 0;
   list-style: none;
+  flex-direction: column;
   color: var(--clr-white);
-  --gap: 8rem;
-  --underline-gap: 1.6rem;
-  padding: 0;
+  --underline-gap: 0.8rem;
   margin: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  &.underline-indicators > li {
+    border: 0;
+
+    @include md {
+      &.active {
+        border-bottom: 3px solid var(--clr-white);
+        color: var(--clr-white);
+      }
+      &:hover,
+      &:focus {
+        padding: var(--underline-gap, 1.6rem) 0;
+        border-bottom: 3px solid rgba(white, 0.5);
+      }
+      --underline-gap: 3.2rem;
+    }
+  }
+
+  @include md {
+    transform: none;
+    padding: 0 9.6rem;
+    height: auto;
+    flex-direction: row;
+    width: max-content;
+    position: relative;
+    --gap: clamp(2.4rem, 5vw, 4.8rem);
+    align-items: center;
+  }
+
+  @include lg {
+  }
 
   span {
     font-weight: 700;
     margin-right: 1.2rem;
+
+    @include md {
+      display: none;
+    }
+
+    @include lg {
+      display: inline-block;
+    }
   }
 
   a {
@@ -223,9 +456,10 @@
   }
 }
 
-//Overline Indicators
+//Underline Indicators
 .underline-indicators {
   & > * {
+    background: transparent;
     padding: var(--underline-gap, 1.6rem) 0;
     border: 0;
     cursor: pointer;
@@ -243,6 +477,36 @@
   }
 }
 
+//Primary Header
+.primary-header {
+  &::after {
+    @include md {
+      display: none;
+    }
+    @include lg {
+      order: 2;
+      z-index: 1001;
+      content: "";
+      position: relative;
+      display: inline-block;
+      height: 0.1rem;
+      width: 100%;
+      left: 3%;
+      top: 50%;
+      background-color: rgba(white, 0.25);
+      transition: all 0.3s ease;
+    }
+  }
+
+  @include md {
+    justify-content: space-between;
+  }
+  @include lg {
+    margin-top: 4rem;
+    justify-content: space-between;
+  }
+}
+
 //Tabs
 .tabs {
   --gap: 3.2rem;
@@ -256,8 +520,8 @@
     display: inline-block;
     cursor: pointer;
     border: none;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: rgba(white, 0.2);
 
@@ -275,8 +539,12 @@
 //Number Indicator
 .number-indicator {
   margin: 3.2rem 0;
-  flex-direction: column;
+  flex-direction: row;
   --gap: 3.2rem;
+
+  @include lg {
+    flex-direction: column;
+  }
 
   & > * {
     cursor: pointer;
@@ -284,9 +552,14 @@
     background-color: transparent;
     color: var(--clr-white);
     border: 1px solid rgba(white, 0.25);
-    width: 8rem;
-    height: 8rem;
     border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+
+    @include md {
+      width: 8rem;
+      height: 8rem;
+    }
 
     &.active {
       background-color: var(--clr-white);
